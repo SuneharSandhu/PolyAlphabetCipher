@@ -15,26 +15,26 @@ public class GUI extends JFrame {
     private PrintWriter writeSock;      // Used to write data to socket
     private BufferedReader readSock;    // Used to read data from socket 
 	
-	private JFrame frame;
-	private JTextField host_addr;       
-	private JTextField portNum;
-	private JButton cd;
-	private JLabel messagelbl;
+    private JFrame frame;
+    private JTextField host_addr;        
+    private JTextField portNum;
+    private JButton cd;
+    private JLabel messagelbl;
     private JTextField messagetxt;
     private JTextArea textArea;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI window = new GUI();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+    public static void main(String[] args) {
+	EventQueue.invokeLater(new Runnable() {
+		public void run() {
+			try {
+				GUI window = new GUI();
+				window.frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
+		}
         });
-	}
+   }
 
 	public GUI() {
 		initialize();
@@ -88,31 +88,31 @@ public class GUI extends JFrame {
 		
 		textArea = new JTextArea();
 		textArea.setBounds(6, 235, 438, 330);
-        frame.getContentPane().add(textArea);
+                frame.getContentPane().add(textArea);
         
         JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(429, 235, 15, 207);
-		frame.getContentPane().add(scrollBar);
+	scrollBar.setBounds(429, 235, 15, 207);
+	frame.getContentPane().add(scrollBar);
 		
-		cd.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (cd.getText().equals("Connect")) {
+	cd.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+		if (cd.getText().equals("Connect")) {
                     openSocket();
                     if (sock.isConnected()) {
                         textArea.append("Connected to Server!\n");
                     }
-					cd.setText("Disconnect");
-				}
-				else {
+			cd.setText("Disconnect");
+		}
+		else {
                     closeSocket();
-				}
-			}
-        });
+		}
+	}
+    });
 
-        sendbtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				send();
-			}
+       sendbtn.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			send();
+		}
         });
     }
     
