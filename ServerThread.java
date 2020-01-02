@@ -12,9 +12,6 @@ public class ServerThread extends Thread {
 	    
 	    Date date = new Date();
 
-	    // DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-	    // Date date = new Date();
-
 	    public ServerThread(Socket sock, PrintWriter logFile) {
 	    	try {
 		        this.clientSock = sock;
